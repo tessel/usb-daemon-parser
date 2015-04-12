@@ -1,0 +1,30 @@
+{
+  "name": "usb-daemon-parser",
+  "version": "0.0.1",
+  "description": "A Node library used by the Tessel CLI to generate and parse packets from the Tessel 2 USB Daemon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tessel/usb-daemon-parser.git"
+  },
+  "keywords": [
+    "tessel",
+    "usb",
+    "daemon",
+    "hardware",
+    "protocol",
+    "2"
+  ],
+  "author": "Jon McKay <jon@technical.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tessel/usb-daemon-parser/issues"
+  },
+  "homepage": "https://github.com/tessel/usb-daemon-parser",
+  "devDependencies": {
+    "debug": "^2.1.3"
+  }
+}
