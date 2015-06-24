@@ -24,7 +24,7 @@
     "url": "https://github.com/tessel/usb-daemon-parser/issues"
   },
   "homepage": "https://github.com/tessel/usb-daemon-parser",
-  "devDependencies": {
+  "dependencies": {
     "debug": "^2.1.3"
   }
 }
