@@ -49,11 +49,11 @@ module.exports.closeProcess = function(id) {
 }
 
 module.exports.controlWrite = function(id, length) {
-  return createHeader(CMD_WRITE_CONTROL, id, 0, length);
+  return createHeader(CMD_WRITE_CONTROL, id, length >> 8, length & 0xFF);
 }
 
 module.exports.stdinWrite = function(id, length) {
-  return createHeader(CMD_WRITE_STDIN, id, 0, length);
+  return createHeader(CMD_WRITE_STDIN, id, length >> 8, length & 0xFF);
 }
 
 module.exports.controlClose = function(id) {
@@ -218,9 +218,13 @@ Parser.prototype._parseHeader = function(headerBuffer) {
       parsedHeader.eventName = 'ACK-CLOSE';
       break;
     case CMD_WRITE_STDOUT:
+      // In the case of writing to stdout, the arg may be used as upper 8 bytes
+      parsedHeader.dataLength = parsedHeader.dataLength || (parsedHeader.arg << 8);
       parsedHeader.eventName = 'WRITE-STDOUT';
       break;
     case CMD_WRITE_STDERR:
+    // In the case of writing to stderr, the arg may be used as upper 8 bytes
+      parsedHeader.dataLength = parsedHeader.dataLength || (parsedHeader.arg << 8);
       parsedHeader.eventName = 'WRITE-STDERR';
       break;
     case CMD_CLOSE_CONTROL:
