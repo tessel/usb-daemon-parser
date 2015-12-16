@@ -1,6 +1,6 @@
 {
   "name": "usb-daemon-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Node library used by the Tessel CLI to generate and parse packets from the Tessel 2 USB Daemon",
   "main": "index.js",
   "scripts": {
